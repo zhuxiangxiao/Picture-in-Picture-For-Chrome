@@ -1,0 +1,53 @@
+{
+  "name": "Picture-in-Picture For Chrome",
+  "short_name": "pip chrome",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "A simple Chrome Picture-in-Picture  Extension based on the demo of the Picture-in-Picture Web API in Chrome.",
+  "homepage_url": "https://github.com/zhuxiangxiao/Picture-in-Picture-For-Chrome",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "browser_action": {
+    "default_icon": {
+      "19": "icons/icon19.png",
+      "38": "icons/icon38.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "file:///*"
+      ],
+      "exclude_matches": [
+        "https://plus.google.com/hangouts/*",
+        "https://hangouts.google.com/*",
+        "https://meet.google.com/*",
+        "https://teamtreehouse.com/*",
+        "http://www.hitbox.tv/*"
+      ],
+      "css": [
+        "inject.css"
+      ],
+      "js": [
+        "inject.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "inject.css",
+    "shadow.css",
+    "icons/*.png"
+  ]
+}
